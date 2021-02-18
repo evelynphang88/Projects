@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 <https://public.tableau.com/profile/evelynphanghuiwen#!/vizhome/DataViz1_16117030016390/AgeGroupDistribution?publish=yes>
 
 ### 2. Original Visualisation: 
-![Original](data/OriginalVisualisation.jpg)
+![Original]
 
 ### 3a.Critic the Graph for Clarity and Aesthetics. 
 ### 3b. Suggestions for Improvement
@@ -108,7 +108,7 @@ There is a significant increase in the percentage contributed by the age group f
 *3rd Insight:*
 The is a slight decrease in the percentage of increase contributed by the age group from 55 and below.  [ Judging from clearly longer bars, and significant change in colour on the right side of the chart ].
 
-![Highlight3](data/Highlight2.jpg)
+![Highlight3](data/Highlight3.jpg)
 
 
 
