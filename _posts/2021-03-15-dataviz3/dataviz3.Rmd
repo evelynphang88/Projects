@@ -1,5 +1,5 @@
 ---
-title: "DataViz3 March 2021"
+title: "DataViz3"
 description: 
     "ISSS608 Visual Analytics and Applications – DataViz Makeover 3" 
 author:
@@ -32,6 +32,9 @@ https://public.tableau.com/profile/evelynphanghuiwen#!/vizhome/EvelynPhangMITB_D
 
 ### 4. Proposed Design Sketch
 
+This a very initial paper design sketch - of the proposed 5 visualisations.
+
+![Initial Paper Sketch of the proposed visualization ](data3/Draft.jpg)
 
 ### 5. Final Visualisation
 
