@@ -37,6 +37,7 @@ This a very initial paper design sketch - of the proposed 5 visualisations.
 
 ![Initial Paper Sketch of the proposed visualization ](data3/Draft.jpg)
 
+
 ### 5. Final Visualisation
 
 Final DataViz ( I suggest that this 5 visualizations can unveil different insights).
