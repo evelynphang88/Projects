@@ -23,6 +23,8 @@ https://public.tableau.com/profile/evelynphanghuiwen#!/vizhome/EvelynPhangMITB_D
 ### 2. Original Visualisation: 
 ![Origina](data3/initialvisualization.jpg)
 
+### 3. Critique
+
 ### 3.1 Critic the Graph for Clarity and Suggestions for Improvement
 
 ![Clarity Critique abd Suggestions ](data3/Critique clarity.png)
@@ -167,10 +169,10 @@ knitr::include_graphics("data3/chart2-10.jpg")
 
 7.3.7 Implement the tooltip as follows
 
-```{r, echo=FALSE, out.width="70%",fig.align='center'}
+```{r, echo=FALSE, out.width="50%",fig.align='center'}
 knitr::include_graphics("data3/chart2-11.jpg")
 ```
-```{r, echo=FALSE, out.width="70%",fig.align='center'}
+```{r, echo=FALSE, out.width="50%",fig.align='center'}
 knitr::include_graphics("data3/chart2-12.jpg")
 ```
 
@@ -242,13 +244,13 @@ knitr::include_graphics("data3/chart4-2.jpg")
 ![](data3/Chart4-3.jpg)
 7.5.4 Format the Chart : Gridlines and Panel colouring so that all the quarters for the same year will have the same panel colour and some light grey row and column grid lines.
 
-```{r, echo=FALSE, out.width="70%",fig.align='center'}
+```{r, echo=FALSE, out.width="50%",fig.align='center'}
 knitr::include_graphics("data3/Chart4-4.jpg")
 ```
 
 7.5.5 Format the title to include dynamic – start and end date as well as event types
 
-```{r, echo=FALSE, out.width="70%",fig.align='center'}
+```{r, echo=FALSE, out.width="50%",fig.align='center'}
 knitr::include_graphics("data3/Chart4-4.jpg")
 ```
 
