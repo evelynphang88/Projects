@@ -25,10 +25,11 @@ https://public.tableau.com/profile/evelynphanghuiwen#!/vizhome/EvelynPhangMITB_D
 
 ### 3.1 Critic the Graph for Clarity and Suggestions for Improvement
 
-![Critique](data3/Critique clarity.png)
+![Clarity Critique abd Suggestions ](data3/Critique clarity.png)
+
 ### 3.2 Critic for Aesthetics and Suggestions for Improvement
 
-![Critique](data3/Critique Aesthetics.png)
+![Aesethics Critic and Suggestions ](data3/Critique Aesthetics.png)
 
 ### 4. Proposed Design Sketch
 
