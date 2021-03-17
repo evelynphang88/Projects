@@ -163,13 +163,14 @@ knitr::include_graphics("data3/chart2-3.jpg")
 
 7.3.5 Configure the Label to show the actual events count
 ![](data3/Chart2-6.jpg)
+
 7.3.6 Implement a pie-chart worksheet for the tooltip. This piechart allows the user to see for each country what is the percentage of event type, compared to the total events.
 
 ```{r, echo=FALSE, out.width="80%",fig.align='center'}
 knitr::include_graphics("data3/chart2-10.jpg")
 ```
 
-7.3.6 Implement the tooltip as follows
+7.3.7 Implement the tooltip as follows
 
 ```{r, echo=FALSE, out.width="50%",fig.align='center'}
 knitr::include_graphics("data3/chart2-11.jpg")
@@ -178,7 +179,7 @@ knitr::include_graphics("data3/chart2-11.jpg")
 knitr::include_graphics("data3/chart2-12.jpg")
 ```
 
-7.3.7 Rename the Sheet to Aggregated Events : By Country. THe Completed Final visualisation.
+7.3.8 Rename the Sheet to Aggregated Events : By Country. THe Completed Final visualisation.
 ![](data3/Final2.jpg)
 
 
