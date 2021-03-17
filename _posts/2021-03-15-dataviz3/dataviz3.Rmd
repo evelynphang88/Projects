@@ -76,7 +76,7 @@ Based on the table ‘No of Conflict events – comparisons between countries’
 
 ### ThirdInsight:
 
-Evaluating the bar chart “Fatalities for Events” vs ‘Armed Confliect Events”= for the same period, we can see that  “Violence Against Civilians and Battles events caused the most fatalities. There was a sharp increase in both Events and Fatalities during the 5 quarters starting from 2016Q3. This is caused mainly by the events in Myanmar(for Battles) and Philippines ( for violence against civilians).
+Evaluating the bar chart “Fatalities for Events” vs ‘Armed Confliect Events”= for the same period, we can see that  “Violence Against Civilians and Battles events caused the most fatalities. There was a sharp increase in both Events and Fatalities during the 5 quarters starting from 2016Q3. This is caused mainly by the events in Myanmar(for Battles) and Philippines ( for violence against civilians). On further filtering i discovered that data for Philippines was only available from 2016 - so that is also one of the reasons for the sudden jump.
 
 ![Third Insight ](data3/Insights3.jpg)
 
