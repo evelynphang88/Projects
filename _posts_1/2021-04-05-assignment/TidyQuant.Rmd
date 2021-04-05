@@ -9,6 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r }
+setwd("C:/Users/User/Google Drive/MITB Files/Course Info/10 Visual Analytics/DistillBlog/Projects/_posts/2021-04-05-assignment")
+```
 
 Background
 
