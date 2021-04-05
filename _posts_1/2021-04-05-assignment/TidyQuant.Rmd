@@ -9,10 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r }
-setwd("C:/Users/User/Google Drive/MITB Files/Course Info/10 Visual Analytics/DistillBlog/Projects/_posts/2021-04-05-assignment")
-```
-
 Background
 
 For the course ISSS608- Visual Analytics, my project group we would like to product a SHINY APP - that provides various tools for a Financial Analysts or even Beginner investor, to analyse stocks past performance and forecasting. 

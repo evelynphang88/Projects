@@ -1,0 +1,10 @@
+---
+title: "Assignments and Projects"
+description: |
+  This blog is for Visual Analytics Assignments and Projects
+site: distill::distill_website
+listing: posts_1
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
