@@ -3,5 +3,7 @@ title: "Assignments and Projects"
 description: |
   This blog is for Visual Analytics Assignments and Projects
 site: distill::distill_website
-listing: posts
+listing: 
+  posts:
+    - 2021-04-05-assignment
 ---

@@ -1,5 +1,6 @@
 name: "Projects"
 title: "My Blog"
+theme: theme.css
 description: |
   My Blog
 output_dir: "_site"

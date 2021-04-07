@@ -3,7 +3,11 @@ title: "DataViz Assignments"
 description: |
   This blog is for Visual Analytics Assignments and Projects
 site: distill::distill_website
-listing: posts
+listing:
+  posts:
+    - 2021-01-27-dataviz1
+    - 2021-02-19-dataviz2
+    - 2021-03-15-dataviz3
 ---
 
 ```{r setup, include=FALSE}
