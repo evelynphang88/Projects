@@ -9,12 +9,12 @@ output:
   distill::distill_article:
     code_folding: true
     toc: true
-    toc_depth : 3
+    toc_depth : 4 
     self_contained: false
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ### 1.Background
@@ -77,25 +77,23 @@ for (p in packages){
 
 TidyQuant addresses a few gaps that in the existing quantitative analysis functions (QAF).
 
-GAP-1 :  Existing Quantitative analysis functions (QAF) -such as xts, zoo, quantmod, TTR, and PerformanceAnalytics work with time-series objects. These objects do not work well with the  data frames or the tidyverse workflow.
+* GAP-1
+  + Existing Quantitative analysis functions (QAF) -such as xts, zoo, quantmod, TTR, and PerformanceAnalytics work with time-series objects. These objects do not work well with the  data frames or the tidyverse workflow.
+* SOLUTION- 1
+  +TidyQuant addresses this by providing a wrapper to enabling seamless usage within the tidyverse workflow.
 
-SOLUTION-1 : TidyQuant addresses this by providing a wrapper to enabling seamless usage within the tidyverse workflow.
-
-GAP-2: Existing QAF functions for Stock Analysis do not provide any easy to use functions to load stock information and stock indices.
-
-SOLUTION-2 : TidyQuant addresses this by implementing the following functions :Get a Stock Index, tq_index(), or a Stock Exchange, tq_exchange(): Returns the stock symbols and various attributes for every stock in an index or exchange. Eighteen indexes and three exchanges are available. To get Quantitative Data, tq_get()is implemented to provide a one-stop shop to get data from various web-sources.
+* GAP-2: Existing QAF functions for Stock Analysis do not provide any easy to use functions to load stock information and stock indices.
+  + SOLUTION-2 : TidyQuant addresses this by implementing the following functions :Get a Stock Index, tq_index(), or a Stock Exchange, tq_exchange(): Returns the stock symbols and various attributes for every stock in an index or exchange. Eighteen indexes and three exchanges are available. To get Quantitative Data, tq_get()is implemented to provide a one-stop shop to get data from various web-sources.
 
 
-GAP-3 : PerformanceAnalytics package consolidates functions to compute many of the most widely used performance metrics. 
-
-SOLUTION -3 : Tidyquant integrates this functionality so it can be used at scale using the split, apply, combine framework within the tidyverse. Two primary functions integrate the performance analysis functionality:
-
-- tq_performance implements the performance analysis functions in a tidy way, enabling scaling analysis using the split, apply, combine framework
-- tq_portfolio provides a useful tool set for aggregating a group of individual asset returns into one or many portfolios.
+* GAP-3 : PerformanceAnalytics package consolidates functions to compute many of the most widely used performance metrics. 
+  + SOLUTION -3 : Tidyquant integrates this functionality so it can be used at scale using the split, apply, combine framework within the tidyverse. Two primary functions integrate the performance analysis functionality:
+    - tq_performance implements the performance analysis functions in a tidy way, enabling scaling analysis using the split, apply, combine framework
+    - tq_portfolio provides a useful tool set for aggregating a group of individual asset returns into one or many portfolios.
 
 
 
-#### 3.1 TidyQuant - Charting
+### 3.1 TidyQuant - Charting
 
 The tidyquant package leverages ggplot2 - and has three primary geometry (geom) categories and one coordinate manipulation (coord) category that i will explore:
 
@@ -110,7 +108,7 @@ The tidyquant package leverages ggplot2 - and has three primary geometry (geom) 
   + Two coord functions are available (coord_x_date and coord_x_datetime), which prevent data loss when zooming in on specific regions of a chart. This is important when using     the moving average and Bollinger band geoms.
 
 
-#### 3.2 TidyQuant - Portfolio Analysis
+### 3.2 TidyQuant - Portfolio Analysis
 
 The ***Performance Analytics*** package in TidyQuant consolidates functions to compute the most widely used stock performance metrics. Tidquant integrates this functionality so it can be used at scale using the split, apply, combine framework within the tidyverse. 
 
@@ -146,10 +144,9 @@ end <- as_date("2021-03-31")
 
 ### 5.Testing and Prototyping -  Single Stock Analysis ( Using APPLE stock)
 
-#### 5.1  Candlestick Chart
+### 5.1  Candlestick Chart
 
-#### 5.1.1 Candlestick Chart- Complete Period 
-
+### 5.1.1 Candlestick Chart- Complete Period 
 
 ```{r}
 AAPL %>%
@@ -159,7 +156,7 @@ AAPL %>%
     scale_color_tq(theme = "dark") +
     scale_y_continuous(labels = scales::dollar)
 ```
-#### 5.1.2 Candlestick Chart- Zooming into a 6 week window.
+### 5.1.2 Candlestick Chart- Zooming into a 6 week window.
 
 ```{r}
 AAPL %>%
@@ -175,7 +172,7 @@ AAPL %>%
     scale_y_continuous(labels = scales::dollar)
 ```
 
-#### 5.1.3 Candlestick Chart- Zooming into 1 week
+### 5.1.3 Candlestick Chart- Zooming into 1 week
 
 ```{r}
 AAPL %>%
@@ -192,7 +189,7 @@ AAPL %>%
 ```
 
 
-#### 5.1.4  Candlestick Chart- Using different colours for the candlesticks.
+### 5.1.4  Candlestick Chart- Using different colours for the candlesticks.
  
 The colors can be modified using colour_up and colour_down, which control the line color, and fill_up and fill_down, which control the rectangle fills.Using RED and GREEN - makes it very clear for the user.. which is the 'danger' candlestick.
 
@@ -210,9 +207,9 @@ AAPL %>%
     theme_tq()
 ```
 
-###  5.2 Stock Price and Trading Volume - Line Charts/Bart Charts
+### 5.2 Stock Price and Trading Volume - Line Charts/Bart Charts
 
-#### 5.2.1 Price Line Chart- for the full period
+### 5.2.1 Price Line Chart- for the full period
 
 ```{r}
 AAPL %>%
@@ -221,7 +218,7 @@ AAPL %>%
     labs(title = "AAPL Line Chart- Prices", y = "Closing Price in USD", x = "") +
     theme_tq()
 ```
-#### 5.2.2 Price Bar Chart- for the full period
+### 5.2.2 Price Bar Chart- for the full period
 ```{r}
 AAPL %>%
     ggplot(aes(x = date, y = close)) +
@@ -233,7 +230,7 @@ AAPL %>%
     theme_tq()
 ```
 
-#### 5.2.3 Price Bar Chart- for 6 weeks - zoomed in
+### 5.2.3 Price Bar Chart- for 6 weeks - zoomed in
 
 
 ```{r}
@@ -249,7 +246,7 @@ AAPL %>%
 ```
 
 
-#### 5.2.4 Stock Volume Chart 
+### 5.2.4 Stock Volume Chart 
 
 We can use the **geom_segment()** function to chart daily volume, which uses xy points for the beginning and end of the line. Using the aesthetic color argument, we color based on the value of volume to make these data stick out.
 
@@ -266,7 +263,7 @@ AAPL %>%
     theme(legend.position = "none") 
 ```
 
-#### 5.2.5 Volume Chart - using Geom_segment- zoomed into past 50 days 
+### 5.2.5 Volume Chart - using Geom_segment- zoomed into past 50 days 
 
 And, we can zoom in on a specific region. Using scale_color_gradient we can quickly visualize the high and low points, and using geom_smooth we can see the trend.
 
@@ -286,7 +283,7 @@ AAPL %>%
     theme(legend.position = "none")
 ```
 
-#### 5.2.6 Moving Averages
+### 5.2.6 Moving Averages
 
 
 Visualizing Trends averages is important for time-series analysis of stocks. Tidyquant includes geoms to enable “rapid prototyping” to quickly visualize signals using moving averages and Bollinger bands.
@@ -304,7 +301,7 @@ Within Tidyquant the following moving averages are available:
 For the purpose of this assignment i will look at SMA
 
 
-#### 5.2.6.1 Charting the 14-day,50-day and 200-day Simple Moving Average
+### 5.2.6.1 Charting the 14-day,50-day and 200-day Simple Moving Average
 
 Charting the 50-day and 200-day simple moving average using the SMA funciton as an example.
 We apply the moving average geoms after the candlestick geom to overlay the moving averages on top of the candlesticks. We add two moving average calls, one for the 50-day and the other for the 200-day. We add color = "red" and linetype = 5 to distinguish the 200-day from the 50-day.
@@ -324,11 +321,11 @@ AAPL %>%
     theme_tq()
 ```
 
-#### 5.2.6.2 Charting for Reviewing Stock Volatility - Bolingar Bands
+### 5.2.6.2 Charting for Reviewing Stock Volatility - Bolingar Bands
 
 Bollinger Bands are used to visualize volatility by plotting a range around a moving average typically two standard deviations up and down. Because they use a moving average, the geom_bbands function works almost identically to geom_ma. The same seven moving averages are compatible. The main difference is the addition of the standard deviation, sd, argument which is 2 by default, and the high, low and close aesthetics which are required to calculate the bands. 
 
-#### 5.2.6.3 Applying BBands using a SMA
+### 5.2.6.3 Applying BBands using a SMA
 
 ```{r}
 AAPL %>%
@@ -370,7 +367,7 @@ AAPL %>%
 
 The main fucntion here is to use **facet_wrap** to visualize multiple stocks at the same time. By adding a group aesthetic in the main ggplot() function and combining with a facet_wrap() function at the end of the ggplot workflow, all five “FAANG” stocks can be viewed simultaneously. 
 
-#### 6.1 Multiple securities -Closing prices
+### 6.1 Multiple securities -Closing prices
 
 ```{r}
 start <- end - weeks(6)
@@ -389,7 +386,7 @@ FAANG %>%
     theme_tq()
 ```
 
-#### 6.2 Multiple securities -Moving averages for multiple stocks at once
+### 6.2 Multiple securities -Moving averages for multiple stocks at once
 
 Experimenting with plotting multiple moving averages. KEY LEARNING : It doesn't make sense to plot multiple moving average days in one combined visual.. as the lines are too close to visalize.
 
@@ -430,7 +427,7 @@ FAANG %>%
     theme_tq()
 ```
 
-#### 6.3  Multiple securities -BBands for multiple stocks
+### 6.3  Multiple securities -BBands for multiple stocks
 
 This is to try out the **geom_bbands**  and **facet_wrap**  functions.
 
@@ -452,7 +449,7 @@ FAANG %>%
     theme_tq()
 ```
 
-#### 6.4  Multiple securities -Annural Returns 
+### 6.4  Multiple securities -Annural Returns 
 
 This is to try out the  **tq_transmute**  function.
 
@@ -482,7 +479,7 @@ FAANG_annual_returns %>%
 ### 6.5 Portfolio Analysis using ***tq_portfolio*** function.
 
 
-#### 6.5.1 Portfolio Returns
+### 6.5.1 Portfolio Returns
 
 ```{r}
 stock_returns_monthly <- c("AAPL", "GOOG", "NFLX","FB","AMZN") %>%
@@ -515,7 +512,7 @@ portfolio_returns_monthly %>%
     scale_y_continuous(labels = scales::percent)
 ```
 
-#### 6.5.2 Portfolio Growth
+### 6.5.2 Portfolio Growth
 
 ```{r}
 wts <- c(0.2,0.2,0.2,0.2,0.2)
@@ -543,7 +540,7 @@ portfolio_growth_monthly %>%
 ```
 
 
-#### 6.5.3 Visualizting Multiple Portfolios
+### 6.5.3 Visualizting Multiple Portfolios
 
 To visualize multiple portfolios, we just  need to configure the WEIGHTs table, for the chosen number of 3 stocks.
 
@@ -594,25 +591,19 @@ portfolio_growth_monthly_multi %>%
 
 ### 7.0 Reflection- Conclusion/Key Learnings/Benefits of Interactivity in the Shiny App
 
-
 A interactive implementation of the above would be able to bring much better user experience
 
-#### 7.1 Interactive User Experience and Self Configuration of views 
+### 7.1 Interactive User Experience and Self Configuration of views 
 
+1) The user will be able select the range date for "zooming" down into the chart rather than hard-coding as above. Example a candlestick chart is not meaningful over multi-years.
 
-1) The user will be able select the range date for "zooming" down into the chart rather than hard-coding as above. 
-Example a candlestick chart is not meaningful over multi-years.
-
-2) The user will be able to use a drop-down menu to select the type of charts he wish to view both for 
-- single stock 
-- groups of stock
+2) The user will be able to use a drop-down menu to select the type of charts he wish to view both for  single stock or groups of stock
 
 3) The example shows the group stock analysis for 5 chosen stocks, in an interactive implementation the user will be able to decide which stocks he wants to view and compare as a group.
 
 4) With an interactive add the portfolio mix can also be 'configured' for various scenarios
 
-
-#### 7.2 Finer details - Interacing with Chart Points.
+### 7.2 Finer details - Interacing with Chart Points.
 
 With an interactive visualisation, the user is able to see more detail about the chart, by 'hovering' over the chart. Currently, all values have to be 'read off' the grid, and the user has to estimate the X and Y values based on the grid lines, instead of knowing the exact values.
 
@@ -622,8 +613,7 @@ With an interactive visualisation, the user is able to see more detail about the
 ![Origina](targetshiny.jpg)
 
 
-
-#### 9.0 References
+### 9.0 References
 
 1)Tidyquant Reference Manual : https://cloud.r-project.org/web/packages/tidyquant/tidyquant.pdf : 5th March 2021
 

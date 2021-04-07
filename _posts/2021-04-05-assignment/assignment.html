@@ -110,7 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Visualisation for Stock Performance - Analysis"]},{"type":"character","attributes":{},"value":["ISS 608- Visual Analytics Assignment : Stock Analysis - Visualisations for Stock Performance\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["EvelynPhang"]}]}]},{"type":"character","attributes":{},"value":["04-05-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Visualisation for Stock Performance - Analysis"]},{"type":"character","attributes":{},"value":["ISS 608- Visual Analytics Assignment : Stock Analysis - Visualisations for Stock Performance\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["EvelynPhang"]}]}]},{"type":"character","attributes":{},"value":["04-05-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[4]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1450,13 +1450,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#background">1.Background</a></li>
 <li><a href="#objectivelayout-of-this-assignment">2. Objective/Layout of this assignment</a></li>
 <li><a href="#literature-review---why-tidyquant-tidy-quantitative-financial-analysis">3. Literature Review - Why TidyQuant (Tidy Quantitative Financial Analysis)</a></li>
+<li><a href="#tidyquant---charting">3.1 TidyQuant - Charting</a></li>
+<li><a href="#tidyquant---portfolio-analysis">3.2 TidyQuant - Portfolio Analysis</a></li>
 <li><a href="#loading-and-preping-data-single-stock-and-multiple-stock-analysis">4. Loading and Preping Data : Single Stock and Multiple Stock analysis</a></li>
 <li><a href="#testing-and-prototyping---single-stock-analysis-using-apple-stock">5.Testing and Prototyping - Single Stock Analysis ( Using APPLE stock)</a></li>
+<li><a href="#candlestick-chart">5.1 Candlestick Chart</a></li>
+<li><a href="#candlestick-chart--complete-period">5.1.1 Candlestick Chart- Complete Period</a></li>
+<li><a href="#candlestick-chart--zooming-into-a-6-week-window.">5.1.2 Candlestick Chart- Zooming into a 6 week window.</a></li>
+<li><a href="#candlestick-chart--zooming-into-1-week">5.1.3 Candlestick Chart- Zooming into 1 week</a></li>
+<li><a href="#candlestick-chart--using-different-colours-for-the-candlesticks.">5.1.4 Candlestick Chart- Using different colours for the candlesticks.</a></li>
 <li><a href="#stock-price-and-trading-volume---line-chartsbart-charts">5.2 Stock Price and Trading Volume - Line Charts/Bart Charts</a></li>
+<li><a href="#price-line-chart--for-the-full-period">5.2.1 Price Line Chart- for the full period</a></li>
+<li><a href="#price-bar-chart--for-the-full-period">5.2.2 Price Bar Chart- for the full period</a></li>
+<li><a href="#price-bar-chart--for-6-weeks---zoomed-in">5.2.3 Price Bar Chart- for 6 weeks - zoomed in</a></li>
+<li><a href="#stock-volume-chart">5.2.4 Stock Volume Chart</a></li>
+<li><a href="#volume-chart---using-geom_segment--zoomed-into-past-50-days">5.2.5 Volume Chart - using Geom_segment- zoomed into past 50 days</a></li>
+<li><a href="#moving-averages">5.2.6 Moving Averages</a></li>
+<li><a href="#charting-the-14-day50-day-and-200-day-simple-moving-average">5.2.6.1 Charting the 14-day,50-day and 200-day Simple Moving Average</a></li>
+<li><a href="#charting-for-reviewing-stock-volatility---bolingar-bands">5.2.6.2 Charting for Reviewing Stock Volatility - Bolingar Bands</a></li>
+<li><a href="#applying-bbands-using-a-sma">5.2.6.3 Applying BBands using a SMA</a></li>
 <li><a href="#charting-for-multiple-securities">6. Charting for Multiple Securities</a></li>
+<li><a href="#multiple-securities--closing-prices">6.1 Multiple securities -Closing prices</a></li>
+<li><a href="#multiple-securities--moving-averages-for-multiple-stocks-at-once">6.2 Multiple securities -Moving averages for multiple stocks at once</a></li>
+<li><a href="#multiple-securities--bbands-for-multiple-stocks">6.3 Multiple securities -BBands for multiple stocks</a></li>
+<li><a href="#multiple-securities--annural-returns">6.4 Multiple securities -Annural Returns</a></li>
 <li><a href="#portfolio-analysis-using-tq_portfolio-function.">6.5 Portfolio Analysis using <strong><em>tq_portfolio</em></strong> function.</a></li>
+<li><a href="#portfolio-returns">6.5.1 Portfolio Returns</a></li>
+<li><a href="#portfolio-growth">6.5.2 Portfolio Growth</a></li>
+<li><a href="#visualizting-multiple-portfolios">6.5.3 Visualizting Multiple Portfolios</a></li>
 <li><a href="#reflection--conclusionkey-learningsbenefits-of-interactivity-in-the-shiny-app">7.0 Reflection- Conclusion/Key Learnings/Benefits of Interactivity in the Shiny App</a></li>
+<li><a href="#interactive-user-experience-and-self-configuration-of-views">7.1 Interactive User Experience and Self Configuration of views</a></li>
+<li><a href="#finer-details---interacing-with-chart-points.">7.2 Finer details - Interacing with Chart Points.</a></li>
 <li><a href="#possible-shiny-app-story-board-for-stock-analysis">8.0 Possible SHiny App Story Board for Stock Analysis</a></li>
+<li><a href="#references">9.0 References</a></li>
 </ul>
 </nav>
 </div>
@@ -1500,20 +1526,41 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 <h3 id="literature-review---why-tidyquant-tidy-quantitative-financial-analysis">3. Literature Review - Why TidyQuant (Tidy Quantitative Financial Analysis)</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># Loads tidyquant, lubridate, xts, quantmod, TTR, and PerformanceAnalytics</span>
 
+<span class='va'>packages</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'tidyverse'</span>,<span class='st'>'tidyquant'</span>,<span class='st'>'lubridate'</span>,<span class='st'>'xts'</span>,<span class='st'>'quantmod'</span>,<span class='st'>'TTR'</span>,<span class='st'>'PerformanceAnalytics'</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>p</span> <span class='kw'>in</span> <span class='va'>packages</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'>p</span>,character.only<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+    <span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='va'>p</span><span class='op'>)</span>
+  <span class='op'>}</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>p</span>, character.only<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
 </div>
 <p>TidyQuant addresses a few gaps that in the existing quantitative analysis functions (QAF).</p>
-<p>GAP-1 : Existing Quantitative analysis functions (QAF) -such as xts, zoo, quantmod, TTR, and PerformanceAnalytics work with time-series objects. These objects do not work well with the data frames or the tidyverse workflow.</p>
-<p>SOLUTION-1 : TidyQuant addresses this by providing a wrapper to enabling seamless usage within the tidyverse workflow.</p>
-<p>GAP-2: Existing QAF functions for Stock Analysis do not provide any easy to use functions to load stock information and stock indices.</p>
-<p>SOLUTION-2 : TidyQuant addresses this by implementing the following functions :Get a Stock Index, tq_index(), or a Stock Exchange, tq_exchange(): Returns the stock symbols and various attributes for every stock in an index or exchange. Eighteen indexes and three exchanges are available. To get Quantitative Data, tq_get()is implemented to provide a one-stop shop to get data from various web-sources.</p>
-<p>GAP-3 : PerformanceAnalytics package consolidates functions to compute many of the most widely used performance metrics.</p>
-<p>SOLUTION -3 : Tidyquant integrates this functionality so it can be used at scale using the split, apply, combine framework within the tidyverse. Two primary functions integrate the performance analysis functionality:</p>
+<ul>
+<li><p>GAP-1</p>
+<ul>
+<li>Existing Quantitative analysis functions (QAF) -such as xts, zoo, quantmod, TTR, and PerformanceAnalytics work with time-series objects. These objects do not work well with the data frames or the tidyverse workflow.</li>
+</ul></li>
+<li><p>SOLUTION- 1 +TidyQuant addresses this by providing a wrapper to enabling seamless usage within the tidyverse workflow.</p></li>
+<li><p>GAP-2: Existing QAF functions for Stock Analysis do not provide any easy to use functions to load stock information and stock indices.</p>
+<ul>
+<li>SOLUTION-2 : TidyQuant addresses this by implementing the following functions :Get a Stock Index, tq_index(), or a Stock Exchange, tq_exchange(): Returns the stock symbols and various attributes for every stock in an index or exchange. Eighteen indexes and three exchanges are available. To get Quantitative Data, tq_get()is implemented to provide a one-stop shop to get data from various web-sources.</li>
+</ul></li>
+<li><p>GAP-3 : PerformanceAnalytics package consolidates functions to compute many of the most widely used performance metrics.</p>
+<ul>
+<li>SOLUTION -3 : Tidyquant integrates this functionality so it can be used at scale using the split, apply, combine framework within the tidyverse. Two primary functions integrate the performance analysis functionality:
 <ul>
 <li>tq_performance implements the performance analysis functions in a tidy way, enabling scaling analysis using the split, apply, combine framework</li>
 <li>tq_portfolio provides a useful tool set for aggregating a group of individual asset returns into one or many portfolios.</li>
+</ul></li>
+</ul></li>
 </ul>
-<h4 id="tidyquant---charting">3.1 TidyQuant - Charting</h4>
+<h3 id="tidyquant---charting">3.1 TidyQuant - Charting</h3>
 <p>The tidyquant package leverages ggplot2 - and has three primary geometry (geom) categories and one coordinate manipulation (coord) category that i will explore:</p>
 <ul>
 <li><p><strong><em>Chart Types</em></strong>: Two chart type visualizations are available using geom_barchart and geom_candlestick.</p></li>
@@ -1524,7 +1571,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li>Two coord functions are available (coord_x_date and coord_x_datetime), which prevent data loss when zooming in on specific regions of a chart. This is important when using the moving average and Bollinger band geoms.</li>
 </ul></li>
 </ul>
-<h4 id="tidyquant---portfolio-analysis">3.2 TidyQuant - Portfolio Analysis</h4>
+<h3 id="tidyquant---portfolio-analysis">3.2 TidyQuant - Portfolio Analysis</h3>
 <p>The <strong><em>Performance Analytics</em></strong> package in TidyQuant consolidates functions to compute the most widely used stock performance metrics. Tidquant integrates this functionality so it can be used at scale using the split, apply, combine framework within the tidyverse.</p>
 <ul>
 <li><p>Two primary functions integrate the performance analysis functionality:</p>
@@ -1536,143 +1583,491 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="loading-and-preping-data-single-stock-and-multiple-stock-analysis">4. Loading and Preping Data : Single Stock and Multiple Stock analysis</h3>
 <p>Tidyquant provides a function tq_get for directly loading data. For the purpose of this assignment i use this funciton to get the data for APPLE, AMAZON, FACEBOOK&lt; GOOGLE, NETFLIX. To preapre for a multi-stock analysis evaluation, i also built combined data set.</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>&lt;-</span> <span class='fu'>tq_get</span><span class='op'>(</span><span class='st'>"AAPL"</span>, get <span class='op'>=</span> <span class='st'>"stock.prices"</span>, from <span class='op'>=</span> <span class='st'>"2011-01-01"</span>, to <span class='op'>=</span> <span class='st'>"2021-03-31"</span><span class='op'>)</span>
+<span class='va'>AMZN</span> <span class='op'>&lt;-</span> <span class='fu'>tq_get</span><span class='op'>(</span><span class='st'>"AMZN"</span>, get <span class='op'>=</span> <span class='st'>"stock.prices"</span>, from <span class='op'>=</span> <span class='st'>"2011-01-01"</span>, to <span class='op'>=</span> <span class='st'>"2021-03-31"</span><span class='op'>)</span>
+<span class='va'>GOOG</span> <span class='op'>&lt;-</span> <span class='fu'>tq_get</span><span class='op'>(</span><span class='st'>"GOOG"</span>,get <span class='op'>=</span> <span class='st'>"stock.prices"</span>, from <span class='op'>=</span> <span class='st'>"2011-01-01"</span>, to <span class='op'>=</span> <span class='st'>"2021-03-31"</span><span class='op'>)</span>
+<span class='va'>NFLX</span> <span class='op'>&lt;-</span> <span class='fu'>tq_get</span><span class='op'>(</span><span class='st'>"NFLX"</span>,get <span class='op'>=</span> <span class='st'>"stock.prices"</span>, from <span class='op'>=</span> <span class='st'>"2011-01-01"</span>, to <span class='op'>=</span> <span class='st'>"2021-03-31"</span><span class='op'>)</span>
+<span class='va'>FB</span> <span class='op'>&lt;-</span> <span class='fu'>tq_get</span><span class='op'>(</span><span class='st'>"FB"</span>,get <span class='op'>=</span> <span class='st'>"stock.prices"</span>, from <span class='op'>=</span> <span class='st'>"2011-01-01"</span>, to <span class='op'>=</span> <span class='st'>"2021-03-31"</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre><code><span class='va'>FAANG</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>FB</span>,<span class='va'>AAPL</span>,<span class='va'>AMZN</span>,<span class='va'>NFLX</span>,<span class='va'>GOOG</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>Setup the End Data for review as last day in March of 2021</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre><code><span class='va'>end</span> <span class='op'>&lt;-</span> <span class='fu'>as_date</span><span class='op'>(</span><span class='st'>"2021-03-31"</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <h3 id="testing-and-prototyping---single-stock-analysis-using-apple-stock">5.Testing and Prototyping - Single Stock Analysis ( Using APPLE stock)</h3>
-<h4 id="candlestick-chart">5.1 Candlestick Chart</h4>
-<h4 id="candlestick-chart--complete-period">5.1.1 Candlestick Chart- Complete Period</h4>
+<h3 id="candlestick-chart">5.1 Candlestick Chart</h3>
+<h3 id="candlestick-chart--complete-period">5.1.1 Candlestick Chart- Complete Period</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_candlestick</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Candlestick Chart"</span>, y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_color_tq</span><span class='op'>(</span>theme <span class='op'>=</span> <span class='st'>"dark"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_y_continuous</span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='va'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar</a></span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
-<h4 id="candlestick-chart--zooming-into-a-6-week-window.">5.1.2 Candlestick Chart- Zooming into a 6 week window.</h4>
+<h3 id="candlestick-chart--zooming-into-a-6-week-window.">5.1.2 Candlestick Chart- Zooming into a 6 week window.</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_candlestick</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Candlestick Chart"</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"Zoomed in using coord_x_date- 6 weeks"</span>,
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, <span class='va'>end</span><span class='op'>)</span>,
+                 ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>110</span>, <span class='fl'>140</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_color_tq</span><span class='op'>(</span>theme <span class='op'>=</span> <span class='st'>"dark"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_y_continuous</span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='va'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar</a></span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
-<h4 id="candlestick-chart--zooming-into-1-week">5.1.3 Candlestick Chart- Zooming into 1 week</h4>
+<h3 id="candlestick-chart--zooming-into-1-week">5.1.3 Candlestick Chart- Zooming into 1 week</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_candlestick</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Candlestick Chart"</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"Zoomed in using coord_x_date - 14 days"</span>,
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>, <span class='va'>end</span><span class='op'>)</span>,
+                 ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>115</span>, <span class='fl'>130</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_color_tq</span><span class='op'>(</span>theme <span class='op'>=</span> <span class='st'>"dark"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_y_continuous</span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='va'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar</a></span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
-<h4 id="candlestick-chart--using-different-colours-for-the-candlesticks.">5.1.4 Candlestick Chart- Using different colours for the candlesticks.</h4>
+<h3 id="candlestick-chart--using-different-colours-for-the-candlesticks.">5.1.4 Candlestick Chart- Using different colours for the candlesticks.</h3>
 <p>The colors can be modified using colour_up and colour_down, which control the line color, and fill_up and fill_down, which control the rectangle fills.Using RED and GREEN - makes it very clear for the user.. which is the ‘danger’ candlestick.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_candlestick</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span>,
+                        colour_up <span class='op'>=</span> <span class='st'>"darkgreen"</span>, colour_down <span class='op'>=</span> <span class='st'>"darkred"</span>, 
+                        fill_up  <span class='op'>=</span> <span class='st'>"darkgreen"</span>, fill_down  <span class='op'>=</span> <span class='st'>"darkred"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Candlestick Chart- 6 weeks "</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"Zoomed in, Experimenting with Formatting: dark red and dark green gives the best visual"</span>,
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, <span class='va'>end</span><span class='op'>)</span>,
+                 ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>110</span>, <span class='fl'>140</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <h3 id="stock-price-and-trading-volume---line-chartsbart-charts">5.2 Stock Price and Trading Volume - Line Charts/Bart Charts</h3>
-<h4 id="price-line-chart--for-the-full-period">5.2.1 Price Line Chart- for the full period</h4>
+<h3 id="price-line-chart--for-the-full-period">5.2.1 Price Line Chart- for the full period</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Line Chart- Prices"</span>, y <span class='op'>=</span> <span class='st'>"Closing Price in USD"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
-<h4 id="price-bar-chart--for-the-full-period">5.2.2 Price Bar Chart- for the full period</h4>
+<h3 id="price-bar-chart--for-the-full-period">5.2.2 Price Bar Chart- for the full period</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_barchart</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Bar Chart -Stock Prices"</span>,
+         subtitle <span class='op'>=</span> <span class='st'>"The bar chart does not give move meaningful info then the line chart for large time scales"</span>,
+         y <span class='op'>=</span> <span class='st'>"Closing Price in USD"</span>, x <span class='op'>=</span> <span class='st'>")+
+         "</span><span class='op'>)</span><span class='op'>+</span>
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
-<h4 id="price-bar-chart--for-6-weeks---zoomed-in">5.2.3 Price Bar Chart- for 6 weeks - zoomed in</h4>
+<h3 id="price-bar-chart--for-6-weeks---zoomed-in">5.2.3 Price Bar Chart- for 6 weeks - zoomed in</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_barchart</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Bar Chart of Stock Prices"</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"Zoomed in using coord_x_date- the y co-oordinate has to be hard-coded-this should resolved with interactivity"</span>,
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, <span class='va'>end</span><span class='op'>)</span>,
+                 ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>100</span>, <span class='fl'>150</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+     <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
 </div>
-<h4 id="stock-volume-chart">5.2.4 Stock Volume Chart</h4>
+<h3 id="stock-volume-chart">5.2.4 Stock Volume Chart</h3>
 <p>We can use the <strong>geom_segment()</strong> function to chart daily volume, which uses xy points for the beginning and end of the line. Using the aesthetic color argument, we color based on the value of volume to make these data stick out.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>volume</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_segment</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>xend <span class='op'>=</span> <span class='va'>date</span>, yend <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='va'>volume</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"APPLE Volume Chart for the whole period"</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"Charting Daily Volume"</span>, 
+         y <span class='op'>=</span> <span class='st'>"Volume"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> 
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
 </div>
-<h4 id="volume-chart---using-geom_segment--zoomed-into-past-50-days">5.2.5 Volume Chart - using Geom_segment- zoomed into past 50 days</h4>
+<h3 id="volume-chart---using-geom_segment--zoomed-into-past-50-days">5.2.5 Volume Chart - using Geom_segment- zoomed into past 50 days</h3>
 <p>And, we can zoom in on a specific region. Using scale_color_gradient we can quickly visualize the high and low points, and using geom_smooth we can see the trend.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>start</span> <span class='op'>&lt;-</span> <span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>24</span><span class='op'>)</span>
+<span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date</span> <span class='op'>&gt;=</span> <span class='va'>start</span> <span class='op'>-</span> <span class='fu'>days</span><span class='op'>(</span><span class='fl'>50</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>volume</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_segment</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>xend <span class='op'>=</span> <span class='va'>date</span>, yend <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='va'>volume</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"APPLE STOCK Bar Chart"</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"Charting Daily Volume, Zooming In"</span>, 
+         y <span class='op'>=</span> <span class='st'>"Volume"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>start</span>, <span class='va'>end</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_color_gradient</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"red"</span>, high <span class='op'>=</span> <span class='st'>"darkblue"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
 </div>
-<h4 id="moving-averages">5.2.6 Moving Averages</h4>
+<h3 id="moving-averages">5.2.6 Moving Averages</h3>
 <p>Visualizing Trends averages is important for time-series analysis of stocks. Tidyquant includes geoms to enable “rapid prototyping” to quickly visualize signals using moving averages and Bollinger bands.</p>
 <p>Within Tidyquant the following moving averages are available: 1)Simple moving averages (SMA) 2)Exponential moving averages (EMA) 3)Weighted moving averages (WMA) 4)Double exponential moving averages (DEMA) 5)Zero-lag exponential moving averages (ZLEMA) 6)Volume-weighted moving averages (VWMA) (also known as VWAP) 7)Elastic, volume-weighted moving averages (EVWMA) (also known as MVWAP)</p>
 <p>For the purpose of this assignment i will look at SMA</p>
-<h4 id="charting-the-14-day50-day-and-200-day-simple-moving-average">5.2.6.1 Charting the 14-day,50-day and 200-day Simple Moving Average</h4>
+<h3 id="charting-the-14-day50-day-and-200-day-simple-moving-average">5.2.6.1 Charting the 14-day,50-day and 200-day Simple Moving Average</h3>
 <p>Charting the 50-day and 200-day simple moving average using the SMA funciton as an example. We apply the moving average geoms after the candlestick geom to overlay the moving averages on top of the candlesticks. We add two moving average calls, one for the 50-day and the other for the 200-day. We add color = “red” and linetype = 5 to distinguish the 200-day from the 50-day.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_candlestick</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_ma</span><span class='op'>(</span>ma_fun <span class='op'>=</span> <span class='va'>SMA</span>, n <span class='op'>=</span> <span class='fl'>14</span>, color<span class='op'>=</span> <span class='st'>'green'</span>, size <span class='op'>=</span> <span class='fl'>1.25</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_ma</span><span class='op'>(</span>ma_fun <span class='op'>=</span> <span class='va'>SMA</span>, n <span class='op'>=</span> <span class='fl'>50</span>, color<span class='op'>=</span> <span class='st'>'blue'</span>, size <span class='op'>=</span> <span class='fl'>1.25</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_ma</span><span class='op'>(</span>ma_fun <span class='op'>=</span> <span class='va'>SMA</span>, n <span class='op'>=</span> <span class='fl'>200</span>, color <span class='op'>=</span> <span class='st'>"red"</span>, size <span class='op'>=</span> <span class='fl'>1.25</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Candlestick Chart"</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"14-Day SMA(green),50-Day SMA(blue) and 200-DaySMA (red )"</span>, 
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>24</span><span class='op'>)</span>, <span class='va'>end</span><span class='op'>)</span>,
+                 ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>80</span>, <span class='fl'>160</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
 </div>
-<h4 id="charting-for-reviewing-stock-volatility---bolingar-bands">5.2.6.2 Charting for Reviewing Stock Volatility - Bolingar Bands</h4>
+<h3 id="charting-for-reviewing-stock-volatility---bolingar-bands">5.2.6.2 Charting for Reviewing Stock Volatility - Bolingar Bands</h3>
 <p>Bollinger Bands are used to visualize volatility by plotting a range around a moving average typically two standard deviations up and down. Because they use a moving average, the geom_bbands function works almost identically to geom_ma. The same seven moving averages are compatible. The main difference is the addition of the standard deviation, sd, argument which is 2 by default, and the high, low and close aesthetics which are required to calculate the bands.</p>
-<h4 id="applying-bbands-using-a-sma">5.2.6.3 Applying BBands using a SMA</h4>
+<h3 id="applying-bbands-using-a-sma">5.2.6.3 Applying BBands using a SMA</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, open <span class='op'>=</span> <span class='va'>open</span>,
+               high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_candlestick</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_bbands</span><span class='op'>(</span>ma_fun <span class='op'>=</span> <span class='va'>SMA</span>, sd <span class='op'>=</span> <span class='fl'>2</span>, n <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Candlestick Chart"</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"BBands with SMA Applied"</span>, 
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>24</span><span class='op'>)</span>, <span class='va'>end</span><span class='op'>)</span>,
+                 ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>80</span>, <span class='fl'>160</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
 <p>Modifying the appearance of Bollinger Bands</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, open <span class='op'>=</span> <span class='va'>open</span>,
+               high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_candlestick</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_bbands</span><span class='op'>(</span>ma_fun <span class='op'>=</span> <span class='va'>SMA</span>, sd <span class='op'>=</span> <span class='fl'>2</span>, n <span class='op'>=</span> <span class='fl'>20</span>, 
+                linetype <span class='op'>=</span> <span class='fl'>4</span>, size <span class='op'>=</span> <span class='fl'>1</span>, alpha <span class='op'>=</span> <span class='fl'>0.2</span>, 
+                fill        <span class='op'>=</span> <span class='fu'>palette_light</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>, 
+                color_bands <span class='op'>=</span> <span class='fu'>palette_light</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>, 
+                color_ma    <span class='op'>=</span> <span class='fu'>palette_light</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Candlestick Chart"</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"BBands with SMA Applied, Experimenting with Formatting"</span>, 
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>24</span><span class='op'>)</span>, <span class='va'>end</span><span class='op'>)</span>,
+                 ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>80</span>, <span class='fl'>160</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
 <h3 id="charting-for-multiple-securities">6. Charting for Multiple Securities</h3>
 <p>The main fucntion here is to use <strong>facet_wrap</strong> to visualize multiple stocks at the same time. By adding a group aesthetic in the main ggplot() function and combining with a facet_wrap() function at the end of the ggplot workflow, all five “FAANG” stocks can be viewed simultaneously.</p>
-<h4 id="multiple-securities--closing-prices">6.1 Multiple securities -Closing prices</h4>
+<h3 id="multiple-securities--closing-prices">6.1 Multiple securities -Closing prices</h3>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre><code><span class='va'>start</span> <span class='op'>&lt;-</span> <span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>FAANG</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date</span> <span class='op'>&gt;=</span> <span class='va'>start</span> <span class='op'>-</span> <span class='fu'>days</span><span class='op'>(</span><span class='fl'>2</span> <span class='op'>*</span> <span class='fl'>15</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, group <span class='op'>=</span> <span class='va'>symbol</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_candlestick</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"FAANG Candlestick Chart"</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"Experimenting with Mulitple Stocks"</span>,
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>start</span>, <span class='va'>end</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>symbol</span>, ncol <span class='op'>=</span> <span class='fl'>2</span>, scale <span class='op'>=</span> <span class='st'>"free_y"</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
 </div>
-<h4 id="multiple-securities--moving-averages-for-multiple-stocks-at-once">6.2 Multiple securities -Moving averages for multiple stocks at once</h4>
+<h3 id="multiple-securities--moving-averages-for-multiple-stocks-at-once">6.2 Multiple securities -Moving averages for multiple stocks at once</h3>
 <p>Experimenting with plotting multiple moving averages. KEY LEARNING : It doesn’t make sense to plot multiple moving average days in one combined visual.. as the lines are too close to visalize.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>start</span> <span class='op'>&lt;-</span> <span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>
+
+<span class='va'>FAANG</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date</span> <span class='op'>&gt;=</span> <span class='va'>start</span> <span class='op'>-</span> <span class='fu'>days</span><span class='op'>(</span><span class='fl'>6</span> <span class='op'>*</span> <span class='fl'>50</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, volume <span class='op'>=</span> <span class='va'>volume</span>, group <span class='op'>=</span> <span class='va'>symbol</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_candlestick</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_ma</span><span class='op'>(</span>ma_fun <span class='op'>=</span> <span class='va'>SMA</span>, n <span class='op'>=</span> <span class='fl'>14</span>, color<span class='op'>=</span> <span class='st'>'green'</span>, size <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_ma</span><span class='op'>(</span>ma_fun <span class='op'>=</span> <span class='va'>SMA</span>, n <span class='op'>=</span> <span class='fl'>50</span>, color<span class='op'>=</span> <span class='st'>'blue'</span>, size <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_ma</span><span class='op'>(</span>ma_fun <span class='op'>=</span> <span class='va'>SMA</span>, n <span class='op'>=</span> <span class='fl'>200</span>, color <span class='op'>=</span> <span class='st'>"red"</span>, size <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Multiple Securities : FAANG "</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"15 and 50-Day EMA, Experimenting with Multiple Stocks"</span>, 
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>start</span>, <span class='va'>end</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>symbol</span>, ncol <span class='op'>=</span> <span class='fl'>2</span>, scales <span class='op'>=</span> <span class='st'>"free_y"</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>start</span> <span class='op'>&lt;-</span> <span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>
+
+<span class='va'>FAANG</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date</span> <span class='op'>&gt;=</span> <span class='va'>start</span> <span class='op'>-</span> <span class='fu'>days</span><span class='op'>(</span><span class='fl'>6</span> <span class='op'>*</span> <span class='fl'>50</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, volume <span class='op'>=</span> <span class='va'>volume</span>, group <span class='op'>=</span> <span class='va'>symbol</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_candlestick</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_ma</span><span class='op'>(</span>ma_fun <span class='op'>=</span> <span class='va'>SMA</span>, n <span class='op'>=</span> <span class='fl'>200</span>, color<span class='op'>=</span> <span class='st'>'blue'</span>, size <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Multiple Securities : FAANG "</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"200-Day EMA, Experimenting with Multiple Stocks"</span>, 
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>start</span>, <span class='va'>end</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>symbol</span>, ncol <span class='op'>=</span> <span class='fl'>2</span>, scales <span class='op'>=</span> <span class='st'>"free_y"</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
 </div>
-<h4 id="multiple-securities--bbands-for-multiple-stocks">6.3 Multiple securities -BBands for multiple stocks</h4>
+<h3 id="multiple-securities--bbands-for-multiple-stocks">6.3 Multiple securities -BBands for multiple stocks</h3>
 <p>This is to try out the <strong>geom_bbands</strong> and <strong>facet_wrap</strong> functions.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>start</span> <span class='op'>&lt;-</span> <span class='va'>end</span> <span class='op'>-</span> <span class='fu'>weeks</span><span class='op'>(</span><span class='fl'>24</span><span class='op'>)</span>
+<span class='va'>FAANG</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date</span> <span class='op'>&gt;=</span> <span class='va'>start</span> <span class='op'>-</span> <span class='fu'>days</span><span class='op'>(</span><span class='fl'>2</span> <span class='op'>*</span> <span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span>, 
+               open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span>, 
+               group <span class='op'>=</span> <span class='va'>symbol</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_barchart</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_bbands</span><span class='op'>(</span>ma_fun <span class='op'>=</span> <span class='va'>SMA</span>, sd <span class='op'>=</span> <span class='fl'>2</span>, n <span class='op'>=</span> <span class='fl'>20</span>, linetype <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Multiple Securities : FAANG "</span>, 
+         subtitle <span class='op'>=</span> <span class='st'>"BBands with SMA Applied, Experimenting with Multiple Stocks"</span>, 
+         y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>coord_x_date</span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>start</span>, <span class='va'>end</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>symbol</span>, ncol <span class='op'>=</span> <span class='fl'>2</span>, scales <span class='op'>=</span> <span class='st'>"free_y"</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
 </div>
-<h4 id="multiple-securities--annural-returns">6.4 Multiple securities -Annural Returns</h4>
+<h3 id="multiple-securities--annural-returns">6.4 Multiple securities -Annural Returns</h3>
 <p>This is to try out the <strong>tq_transmute</strong> function.</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre><code><span class='va'>FAANG_annual_returns</span> <span class='op'>&lt;-</span> <span class='va'>FAANG</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>symbol</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>tq_transmute</span><span class='op'>(</span>select     <span class='op'>=</span> <span class='va'>adjusted</span>, 
+                 mutate_fun <span class='op'>=</span> <span class='va'>periodReturn</span>, 
+                 period     <span class='op'>=</span> <span class='st'>"yearly"</span>, 
+                 type       <span class='op'>=</span> <span class='st'>"arithmetic"</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>FAANG_annual_returns</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>yearly.returns</span>, fill <span class='op'>=</span> <span class='va'>symbol</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_col</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_hline</span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='fu'>palette_light</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_y_continuous</span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='va'><a href='https://scales.r-lib.org/reference/label_percent.html'>percent</a></span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"FAANG: Annual Returns"</span>,
+         subtitle <span class='op'>=</span> <span class='st'>"Get annual returns quickly with tq_transmute!"</span>,
+         y <span class='op'>=</span> <span class='st'>"Annual Returns"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>symbol</span>, ncol <span class='op'>=</span> <span class='fl'>2</span>, scales <span class='op'>=</span> <span class='st'>"free_y"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+    <span class='fu'>scale_fill_tq</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
 </div>
 <h3 id="portfolio-analysis-using-tq_portfolio-function.">6.5 Portfolio Analysis using <strong><em>tq_portfolio</em></strong> function.</h3>
-<h4 id="portfolio-returns">6.5.1 Portfolio Returns</h4>
+<h3 id="portfolio-returns">6.5.1 Portfolio Returns</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>stock_returns_monthly</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"AAPL"</span>, <span class='st'>"GOOG"</span>, <span class='st'>"NFLX"</span>,<span class='st'>"FB"</span>,<span class='st'>"AMZN"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>tq_get</span><span class='op'>(</span>get  <span class='op'>=</span> <span class='st'>"stock.prices"</span>,
+           from <span class='op'>=</span> <span class='st'>"2010-01-01"</span>,
+           to   <span class='op'>=</span> <span class='st'>"2015-12-31"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>symbol</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>tq_transmute</span><span class='op'>(</span>select     <span class='op'>=</span> <span class='va'>adjusted</span>, 
+                 mutate_fun <span class='op'>=</span> <span class='va'>periodReturn</span>, 
+                 period     <span class='op'>=</span> <span class='st'>"monthly"</span>, 
+                 col_rename <span class='op'>=</span> <span class='st'>"Ra"</span><span class='op'>)</span>
+<span class='va'>wts</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.2</span>, <span class='fl'>0.2</span>, <span class='fl'>0.2</span>,<span class='fl'>0.2</span>,<span class='fl'>0.2</span><span class='op'>)</span>
+<span class='va'>portfolio_returns_monthly</span> <span class='op'>&lt;-</span> <span class='va'>stock_returns_monthly</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>tq_portfolio</span><span class='op'>(</span>assets_col  <span class='op'>=</span> <span class='va'>symbol</span>, 
+                 returns_col <span class='op'>=</span> <span class='va'>Ra</span>, 
+                 weights     <span class='op'>=</span> <span class='va'>wts</span>, 
+                 col_rename  <span class='op'>=</span> <span class='st'>"Ra"</span><span class='op'>)</span>
+
+
+<span class='va'>portfolio_returns_monthly</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>Ra</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_bar</span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, fill <span class='op'>=</span> <span class='fu'>palette_light</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Portfolio Returns"</span>,
+         subtitle <span class='op'>=</span> <span class='st'>"20% AAPL, 20% GOOG,20% NFLX, 20% FB, 20% AMZN"</span>,
+         caption <span class='op'>=</span> <span class='st'>"Shows an above-zero trend meaning positive returns"</span>,
+         x <span class='op'>=</span> <span class='st'>""</span>, y <span class='op'>=</span> <span class='st'>"Monthly Returns"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_color_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_y_continuous</span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='va'><a href='https://scales.r-lib.org/reference/label_percent.html'>percent</a></span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
 </div>
-<h4 id="portfolio-growth">6.5.2 Portfolio Growth</h4>
+<h3 id="portfolio-growth">6.5.2 Portfolio Growth</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>wts</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.2</span>,<span class='fl'>0.2</span>,<span class='fl'>0.2</span>,<span class='fl'>0.2</span>,<span class='fl'>0.2</span><span class='op'>)</span>
+<span class='va'>portfolio_growth_monthly</span> <span class='op'>&lt;-</span> <span class='va'>stock_returns_monthly</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>tq_portfolio</span><span class='op'>(</span>assets_col   <span class='op'>=</span> <span class='va'>symbol</span>, 
+                 returns_col  <span class='op'>=</span> <span class='va'>Ra</span>, 
+                 weights      <span class='op'>=</span> <span class='va'>wts</span>, 
+                 col_rename   <span class='op'>=</span> <span class='st'>"investment.growth"</span>,
+                 wealth.index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>investment.growth <span class='op'>=</span> <span class='va'>investment.growth</span> <span class='op'>*</span> <span class='fl'>10000</span><span class='op'>)</span>
+
+<span class='va'>portfolio_growth_monthly</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>investment.growth</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_line</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>2</span>, color <span class='op'>=</span> <span class='fu'>palette_light</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Portfolio Growth"</span>,
+         subtitle <span class='op'>=</span> <span class='st'>"20% AAPL, 20% GOOG,20% NFLX, 20% FB, 20% AMZN"</span>,
+         caption <span class='op'>=</span> <span class='st'>"Visualize performance!"</span>,
+         x <span class='op'>=</span> <span class='st'>""</span>, y <span class='op'>=</span> <span class='st'>"Portfolio Value"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_color_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_y_continuous</span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='va'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar</a></span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
 </div>
-<h4 id="visualizting-multiple-portfolios">6.5.3 Visualizting Multiple Portfolios</h4>
+<h3 id="visualizting-multiple-portfolios">6.5.3 Visualizting Multiple Portfolios</h3>
 <p>To visualize multiple portfolios, we just need to configure the WEIGHTs table, for the chosen number of 3 stocks.</p>
 <p>20% AAPL, 25% GOOG, 25% NFLX, 20% FB,10% AMZN 15% AAPL, 50% GOOG, 25% NFLX, 5% FB,5% AMZN 15% AAPL, 25% GOOG, 40% NFLX, 10% FB,10% AMZN</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>weights</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+    <span class='fl'>0.2</span>, <span class='fl'>0.25</span>, <span class='fl'>0.25</span>,<span class='fl'>0.2</span>,<span class='fl'>0.1</span>,
+    <span class='fl'>0.15</span>, <span class='fl'>0.50</span>, <span class='fl'>0.25</span>,<span class='fl'>0.5</span>,<span class='fl'>0.5</span>,
+    <span class='fl'>0.15</span>, <span class='fl'>0.25</span>, <span class='fl'>0.40</span>,<span class='fl'>0.1</span>,<span class='fl'>0.1</span>
+<span class='op'>)</span>
+
+<span class='va'>stocks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"AAPL"</span>, <span class='st'>"GOOG"</span>, <span class='st'>"NFLX"</span>,<span class='st'>"FB"</span>,<span class='st'>"AMZN"</span><span class='op'>)</span>
+
+<span class='va'>weights_table</span> <span class='op'>&lt;-</span>  <span class='fu'>tibble</span><span class='op'>(</span><span class='va'>stocks</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>tq_repeat_df</span><span class='op'>(</span>n <span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>bind_cols</span><span class='op'>(</span><span class='fu'>tibble</span><span class='op'>(</span><span class='va'>weights</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>portfolio</span><span class='op'>)</span>
+
+<span class='va'>stock_returns_monthly_multi</span> <span class='op'>&lt;-</span> <span class='va'>stock_returns_monthly</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>tq_repeat_df</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+
+<span class='va'>portfolio_growth_monthly_multi</span> <span class='op'>&lt;-</span> <span class='va'>stock_returns_monthly_multi</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>tq_portfolio</span><span class='op'>(</span>assets_col   <span class='op'>=</span> <span class='va'>symbol</span>, 
+                 returns_col  <span class='op'>=</span> <span class='va'>Ra</span>, 
+                 weights      <span class='op'>=</span> <span class='va'>weights_table</span>, 
+                 col_rename   <span class='op'>=</span> <span class='st'>"investment.growth"</span>,
+                 wealth.index <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>investment.growth <span class='op'>=</span> <span class='va'>investment.growth</span> <span class='op'>*</span> <span class='fl'>10000</span><span class='op'>)</span>
+
+
+
+<span class='va'>portfolio_growth_monthly_multi</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>investment.growth</span>, color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>portfolio</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_line</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Portfolio Growth"</span>,
+         subtitle <span class='op'>=</span> <span class='st'>"Comparing Multiple Portfolios- Portfolio 2 has the highest returns"</span>,
+         caption <span class='op'>=</span> <span class='st'>"Best Performing Porfolio -2 : 15% AAPL, 50% GOOG, 25% NFLX, 5% FB,5% AMZN"</span>,
+         x <span class='op'>=</span> <span class='st'>""</span>, y <span class='op'>=</span> <span class='st'>"Portfolio Value"</span>,
+         color <span class='op'>=</span> <span class='st'>"Portfolio"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_color_tq</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>scale_y_continuous</span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='va'><a href='https://scales.r-lib.org/reference/label_dollar.html'>dollar</a></span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
 </div>
 <h3 id="reflection--conclusionkey-learningsbenefits-of-interactivity-in-the-shiny-app">7.0 Reflection- Conclusion/Key Learnings/Benefits of Interactivity in the Shiny App</h3>
 <p>A interactive implementation of the above would be able to bring much better user experience</p>
-<h4 id="interactive-user-experience-and-self-configuration-of-views">7.1 Interactive User Experience and Self Configuration of views</h4>
+<h3 id="interactive-user-experience-and-self-configuration-of-views">7.1 Interactive User Experience and Self Configuration of views</h3>
 <ol type="1">
 <li><p>The user will be able select the range date for “zooming” down into the chart rather than hard-coding as above. Example a candlestick chart is not meaningful over multi-years.</p></li>
-<li><p>The user will be able to use a drop-down menu to select the type of charts he wish to view both for</p></li>
-</ol>
-<ul>
-<li>single stock</li>
-<li>groups of stock</li>
-</ul>
-<ol start="3" type="1">
+<li><p>The user will be able to use a drop-down menu to select the type of charts he wish to view both for single stock or groups of stock</p></li>
 <li><p>The example shows the group stock analysis for 5 chosen stocks, in an interactive implementation the user will be able to decide which stocks he wants to view and compare as a group.</p></li>
 <li><p>With an interactive add the portfolio mix can also be ‘configured’ for various scenarios</p></li>
 </ol>
-<h4 id="finer-details---interacing-with-chart-points.">7.2 Finer details - Interacing with Chart Points.</h4>
+<h3 id="finer-details---interacing-with-chart-points.">7.2 Finer details - Interacing with Chart Points.</h3>
 <p>With an interactive visualisation, the user is able to see more detail about the chart, by ‘hovering’ over the chart. Currently, all values have to be ‘read off’ the grid, and the user has to estimate the X and Y values based on the grid lines, instead of knowing the exact values.</p>
 <h3 id="possible-shiny-app-story-board-for-stock-analysis">8.0 Possible SHiny App Story Board for Stock Analysis</h3>
 <figure>
 <img src="targetshiny.jpg" alt="Origina" /><figcaption aria-hidden="true">Origina</figcaption>
 </figure>
-<h4 id="references">9.0 References</h4>
+<h3 id="references">9.0 References</h3>
 <p>1)Tidyquant Reference Manual : <a href="https://cloud.r-project.org/web/packages/tidyquant/tidyquant.pdf" class="uri">https://cloud.r-project.org/web/packages/tidyquant/tidyquant.pdf</a> : 5th March 2021</p>
 <p>2)Introduction to TidyQuant <a href="https://cloud.r-project.org/web/packages/tidyquant/vignettes/TQ00-introduction-to-tidyquant.html" class="uri">https://cloud.r-project.org/web/packages/tidyquant/vignettes/TQ00-introduction-to-tidyquant.html</a></p>
 <p>3)R Graphics Cook Book - Winston Chong</p>
