@@ -1,5 +1,5 @@
 ---
-title: "Visualisation for Stock Performance - Analysis"
+title: "Visualisation for Stock Performance Analysis"
 description: |
     ISS 608- Visual Analytics Assignment : Stock Analysis - Visualisations- A short exploration of TidyQuant with ggplot2
 author:
@@ -9,7 +9,7 @@ output:
   distill::distill_article:
     code_folding: true
     toc: true
-    toc_depth : 4
+    toc_depth : 3
     self_contained: false
 ---
 
@@ -63,9 +63,10 @@ After some research, the typical four charts that is useful for a trader to anal
 
 
 <center>
+![](tidyquant1.png){width=30%}
 
-![](tidyquant1.png){width=20%}
 </center>
+
 
 
 ```{r}

@@ -15,11 +15,11 @@
 
 html {
   /*-- Main font sizes --*/
-  --title-size:      30px;
+  --title-size:      50px;
   --body-size:       1.06rem;
-  --code-size:       0.9px;
-  --aside-size:      11px;
-  --fig-cap-size:    9px;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
   /*-- Main font colors --*/
   --title-color:     #ca225e;
   --header-color:    #ca225e;                    /* edited */
@@ -35,16 +35,16 @@ html {
 
 /*-- ARTICLE METADATA --*/
 d-byline {
-  --heading-size:    1.06rem;                      /* edited */
+  --heading-size:    0.9rem;                      /* edited */
   --heading-color:   rgba(0, 0, 0, 0.5);
-  --body-size:       1.06rem;                     /* edited */
+  --body-size:       0.95rem;                     /* edited */
   --body-color:      rgba(0, 0, 0, 0.8);
 }
 
 /*-- ARTICLE TABLE OF CONTENTS --*/
 .d-contents {
-  --heading-size:    15px;
-  --contents-size:   14px;
+  --heading-size:    18px;
+  --contents-size:   13px;
 }
 
 /*-- ARTICLE APPENDIX --*/
@@ -59,9 +59,9 @@ d-appendix {
 /* These properties only apply to Distill sites and blogs  */
 
 .distill-site-header {
-  --title-size:       16px;
+  --title-size:       18px;
   --text-color:       #1f1f1f;                   /* edited */
-  --text-size:        14px;
+  --text-size:        15px;
   --hover-color:      #787878;                   /* edited */
   --bkgd-color:       #fff;                      /* edited */
 }
@@ -85,12 +85,12 @@ ul > li::marker {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  letter-spacing: 1px;
-  font-weight: 200;
+  letter-spacing: 2px;
+  font-weight: 300;
 }
 
 .distill-site-header .logo img{
-  max-height: 20px; /* Makes logo bigger, default was 20px */
+  max-height: 40px; /* Makes logo bigger, default was 20px */
 }
 
 .distill-site-header {
