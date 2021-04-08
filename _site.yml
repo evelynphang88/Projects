@@ -1,8 +1,7 @@
-name: "Projects"
-title: "My Blog"
-theme: theme.css
+name: "Projects/Assignemnts/Dataviz"
+title: "Evelyn's Blog"
+theme: "theme.css"
 description: |
-  My Blog
 output_dir: "_site"
 navbar:
   right:
