@@ -60,6 +60,7 @@ After some research, the typical two charts that is useful for a trader to analy
 
 ### 3. Literature Review - Why TidyQuant (Tidy Quantitative Financial Analysis)
 
+![tidyquant](tidyquant1.png)
 
 ```{r}
 # Loads tidyquant, lubridate, xts, quantmod, TTR, and PerformanceAnalytics
