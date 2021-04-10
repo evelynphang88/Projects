@@ -62,7 +62,6 @@ After some research, the typical four charts that is useful for a trader to anal
 
 ### 3. Literature Review - Why TidyQuant (Tidy Quantitative Financial Analysis)
 
-
 <center>
 ![](tidyquant1.png){width=30%}
 
@@ -522,8 +521,23 @@ FAANG %>%
 
 ### 6.4  Multiple securities -Annural Returns 
 
+#### 6.4.1 Multiple Stocks in a one line chart
 
-#### 6.4.2 Multiple Stocks in a Facet Chart
+```{r}
+tq_get(c("GOOGL","AMZN","FB","AAPL","NFLX"), get="stock.prices") %>%
+  group_by(symbol) %>%
+  tq_transmute(select=adjusted,
+               mutate_fun=periodReturn,
+               period="monthly",
+               col_rename = "monthly_return") %>%
+  ggplot(aes(date, monthly_return, color=symbol)) +
+  labs(title = "Multiple Securities : FAANG - in one line chart") + 
+  geom_line()
+```
+
+***KEY LEARNING** From the chart we can see that NETFLIX had much bigger swings in return than the overstocks. For a deeper dive comparison, a facet layout will be required side by side. 
+
+#### 6.4.2 Multiple Stocks in a Facet Layout
 
 This is to try out the  **tq_transmute**  function.
 
