@@ -6,7 +6,7 @@
       "description": "This blog is for Visual Analytics Assignments and Projects",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-04-10T14:57:44+08:00"
+      "last_modified": "2021-04-10T15:15:58+08:00"
     },
     {
       "path": "dataviz.html",
@@ -14,14 +14,14 @@
       "description": "This blog is for Visual Analytics Assignments and Projects\n",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-04-10T14:57:48+08:00"
+      "last_modified": "2021-04-10T15:16:00+08:00"
     },
     {
       "path": "index.html",
       "title": "Evelyn Phang - Visual Analytics Projects ",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-04-10T14:57:49+08:00"
+      "last_modified": "2021-04-10T15:16:02+08:00"
     },
     {
       "path": "projects.html",
@@ -29,7 +29,7 @@
       "description": "This blog is for Visual Analytics Assignments and Projects\n",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-04-10T14:57:50+08:00"
+      "last_modified": "2021-04-10T15:16:04+08:00"
     }
   ],
   "collections": ["posts/posts.json"]

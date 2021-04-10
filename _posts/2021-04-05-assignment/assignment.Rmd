@@ -18,7 +18,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### 1.Background
+## 1.Background
 
 Many investors analyze stocks based on their fundamentals such as their revenue, valuation, or industry trends but fundamental factors aren't always reflected in the market price.  
 
@@ -32,7 +32,7 @@ Project Group Scope : provides various tools for a ***beginner*** investor,to an
 ** I will be covering part 2).**
 
 
-### 2. Objective/Layout of this assignment
+## 2. Objective/Layout of this assignment
 
 This assignment explores the features of TidyQuant to experiment what is  best of the user, and also to identify any gaps that an eventually Shiny App implementation can adderss to improve the user's experience.
 
@@ -60,7 +60,7 @@ After some research, the typical four charts that is useful for a trader to anal
 * 4)Annual Returns
 
 
-### 3. Literature Review - Why TidyQuant (Tidy Quantitative Financial Analysis)
+## 3. Literature Review - Why TidyQuant (Tidy Quantitative Financial Analysis)
 
 <center>
 ![](tidyquant1.png){width=30%}
@@ -127,7 +127,7 @@ The ***Performance Analytics*** package in TidyQuant consolidates functions to c
   + ***tq_portfolio*** -  provides a useful tool set for aggregating a group of individual asset returns into one or many portfolios.
   
 
-### 4. Loading and Preping Data : Single Stock and Multiple Stock analysis
+## 4. Loading and Preping Data : Single Stock and Multiple Stock analysis
 
 Tidyquant provides a function tq_get for directly loading data. For the purpose of this assignment i use this funciton to get the data for APPLE, AMAZON, FACEBOOK< GOOGLE, NETFLIX. To preapre for a multi-stock analysis evaluation, i also built combined data set.
 
@@ -151,7 +151,7 @@ end <- as_date("2021-03-31")
 ```
 
 
-### 5.Testing and Prototyping -  Single Stock Analysis ( Using APPLE stock)
+## 5.Testing and Prototyping -  Single Stock Analysis ( Using APPLE stock)
 
 ### 5.1  Candlestick Chart
 
@@ -423,7 +423,7 @@ AAPL %>%
 
 ```
 
-### 6. Charting for Multiple Securities
+## 6. Charting for Multiple Securities
 
 The main fucntion here is to use **facet_wrap** to visualize multiple stocks at the same time. By adding a group aesthetic in the main ggplot() function and combining with a facet_wrap() function at the end of the ggplot workflow, all five “FAANG” stocks can be viewed simultaneously. 
 
@@ -495,7 +495,7 @@ FAANG %>%
     theme_tq()
 ```
 
-*** KEY LEARNING *** FAANG data is filtered by date from double the number of moving-average days (2 * n) previous to the start date. This yields a nice y-axis scale and still allows us to create a moving average line using geom_ma.Too much out-of-bounds data distorts the scale of the y-axis, and too little and we cannot get a moving average. The optimal method is to include “just enough” out-of-bounds data to get the chart we want.
+***KEY LEARNING*** FAANG data is filtered by date from double the number of moving-average days (2 * n) previous to the start date. This yields a nice y-axis scale and still allows us to create a moving average line using geom_ma.Too much out-of-bounds data distorts the scale of the y-axis, and too little and we cannot get a moving average. The optimal method is to include “just enough” out-of-bounds data to get the chart we want.
 
 ### 6.3  Multiple securities -BBands for multiple stocks
 
@@ -772,7 +772,7 @@ FAANG %>%
 ***Key Learning*** : THe other colour schemes - will invariably collide with one of the coloured lines - eg. in the last example above. The ***white theme*** with normal size line of 1 is good for single charts, and for faceted charts, white background with a fine line width of about 0.8 :  still presents the information with better clarity, and should be used for overall approach.
 
 
-### 7.0 Reflection- Conclusion/Key Learnings/Benefits of Interactivity in the Shiny App
+## 7.0 Reflection- Conclusion/Key Learnings/Benefits of Interactivity in the Shiny App
 
 A interactive implementation of the above would be able to bring much better user experience. Based on experimenting with various formats, graph and chart options i think :
 
@@ -800,12 +800,12 @@ A interactive implementation of the above would be able to bring much better use
 With an interactive visualisation, the user is able to see more detail about the chart, by 'hovering' over the chart. Currently, all values have to be 'read off' the grid, and the user has to estimate the X and Y values based on the grid lines, instead of knowing the exact values.
 
 
-### 8.0 Possible SHiny App Story Board for Stock Analysis
+## 8.0 Possible SHiny App Story Board for Stock Analysis
 
 ![Origina](targetshiny.jpg)
 
 
-### 9.0 References
+## 9.0 References
 
 1)Tidyquant Reference Manual : https://cloud.r-project.org/web/packages/tidyquant/tidyquant.pdf : 5th March 2021
 
