@@ -2,6 +2,7 @@
 title: "Visualisation for Stock Performance Analysis"
 description: |
     ISS 608- Visual Analytics Assignment : Stock Analysis - Visualisations- A short exploration of TidyQuant with ggplot2
+preview: tidyquant1.jpg
 author:
   - name: EvelynPhang
 date: 04-05-2021
@@ -222,22 +223,12 @@ AAPL %>%
 ***KEY LEARNING*** : Red and Green is a good colour palette to immediately show up the days where the closing price was lower then the opening price ( Red )- makes the candle chart quickly readable.
 
 
-### 5.2 Stock Price and Trading Volume - Line Charts/Bart Charts
+#### 5.1.5 Price Bar Chart- alternative to candlestick
 
-#### 5.2.1 Price Line Chart- for the full period
+Price Bar Chart - Each bar typically shows open, high, low, and closing (OHLC) prices. 
+Bar charts are very similar to candlestick charts. The two chart types show the same information but in different ways.
+A bar chart is composed of a vertical line with small horizontal lines on the left and right that show the open and close. Candlesticks also have a vertical line showing the high and low of the period (called a shadow or wick), but the difference between the open and close is represented by a thicker portion called a real body. The body is shaded in or colored red if the close is below the open. The body is white or green if the close is above the open. While the information is the same, the visual look of the two chart types is different.
 
-```{r}
-AAPL %>%
-    ggplot(aes(x = date, y = close)) +
-    geom_line() +
-    labs(title = "AAPL Line Chart- Prices", y = "Closing Price in USD", x = "") +
-    theme_tq()
-```
-
-
-
-
-#### 5.2.2 Price Bar Chart- for the full period
 ```{r}
 AAPL %>%
     ggplot(aes(x = date, y = close)) +
@@ -251,7 +242,7 @@ AAPL %>%
 
 ***KEY LEARNING*** : The bar chart does not give move meaningful info then the line chart for large time scales
 
-#### 5.2.3 Price Bar Chart- for 4 weeks - zoomed in
+#### 5.1.6 Price BarChart- for 4 weeks - zoomed in
 
 
 ```{r}
@@ -266,9 +257,26 @@ AAPL %>%
                  ylim = c(110, 130)) + 
      theme_tq()
 ```
-***Key Learning*** : The colors can be modified using colour_up and colour_down arguments, and parameters such as size can be used to control the appearance
+***Key Learning*** :Candle Charts are far easier to interpret than Pricebarcharts and much easier to read.
+ 
 
-#### 5.2.4 Stock Volume Chart 
+
+### 5.2 Stock Price/TradingVolume/Returns
+
+Exploring the varies ways to visualize Price/TradingVolume/Returns/Moving Averages.
+
+#### 5.2.1 Price Line Chart- for the full period
+
+```{r}
+AAPL %>%
+    ggplot(aes(x = date, y = close)) +
+    geom_line() +
+    labs(title = "AAPL Line Chart- Prices", y = "Closing Price in USD", x = "") +
+    theme_tq()
+```
+
+
+#### 5.2.2 Stock Volume Chart 
 
 We can use the **geom_segment()** function to chart daily volume, which uses xy points for the beginning and end of the line. Using the aesthetic color argument, we color based on the value of volume to make these data stick out.
 
@@ -278,14 +286,14 @@ AAPL %>%
     ggplot(aes(x = date, y = volume)) +
     geom_segment(aes(xend = date, yend = 0, color = volume)) + 
     geom_smooth(method = "loess", se = FALSE) +
-    labs(title = "APPLE Volume Chart for the whole period", 
+    labs(title = "APPLE Volume Chart - Bar Chart - Whole Period", 
          subtitle = "Charting Daily Volume", 
          y = "Volume", x = "") +
     theme_tq() +
     theme(legend.position = "none") 
 ```
 
-#### 5.2.5 Volume Chart - using Geom_segment- zoomed into past 50 days 
+#### 5.2.3 Volume Chart - using Geom_segment- zoomed into past 50 days 
 
 And, we can zoom in on a specific region. Using scale_color_gradient we can quickly visualize the high and low points, and using geom_smooth we can see the trend.
 
@@ -297,7 +305,7 @@ AAPL %>%
     ggplot(aes(x = date, y = volume)) +
     geom_segment(aes(xend = date, yend = 0, color = volume)) +
     geom_smooth(method = "loess", se = FALSE) +
-    labs(title = "APPLE STOCK Bar Chart", 
+    labs(title = "APPLE Price Chart - Bar Chart- WHole Period", 
          subtitle = "Charting Daily Volume, Zooming In to past 20 days", 
          y = "Volume", x = "") + 
     coord_x_date(xlim = c(start, end)) +
@@ -305,9 +313,22 @@ AAPL %>%
     theme_tq() + 
     theme(legend.position = "none")
 ```
+#### 5.2.4 Single Stock Returns Chart - Line Chart/Time series. 
 
-#### 5.2.6 Moving Averages
+Showing monthly return for single stock
 
+```{r}
+tq_get(c("AAPL"), get="stock.prices") %>%
+  tq_transmute(select=adjusted,
+               mutate_fun=periodReturn,
+               period="monthly",
+               col_rename = "monthly_return") %>%
+  ggplot(aes(date, monthly_return)) +
+  labs(title = "APPLE STOCK-Monthly Return - Line Chart") + 
+  geom_line()
+```
+  
+#### 5.2.5 Moving Averages
 
 Visualizing Trends averages is important for time-series analysis of stocks. For example : A simple moving average (SMA) calculates the average of a selected range of prices, usually closing prices, by the number of periods in that range. A simple moving average is a technical indicator that can aid in determining if an asset price will continue or if it will reverse a bull or bear trend.A simple moving average can be enhanced as an exponential moving average (EMA) that is more heavily weighted on recent price action. 
 
@@ -328,7 +349,7 @@ Within Tidyquant the following moving averages are available:
 For exploration : We will visualize the SMA, EMA. 
 
 
-##### 5.2.6.1 Charting the 14-day,50-day and 200-day Simple Moving Average
+##### 5.2.5.1 Charting the 14-day,50-day and 200-day Simple Moving Average
 
 Charting the 50-day and 200-day simple moving average using the SMA funciton as an example.We apply the moving average geoms after the candlestick geom to overlay the moving averages on top of the candlesticks. We add two moving average calls, one for the 50-day and the other for the 200-day. We add color = "red" and linetype = 5 to distinguish the 200-day from the 50-day.
 
@@ -346,7 +367,7 @@ AAPL %>%
                  ylim = c(80, 160)) + 
     theme_tq()
 ```
-##### 5.2.6.2 Charting Exponential Moving Average (EMA)
+##### 5.2.5.2 Charting Exponential Moving Average (EMA)
 
 
 ```{r}
@@ -363,11 +384,11 @@ AAPL %>%
     theme_tq()
 ```
 
-##### 5.2.6.3 Charting for Reviewing Stock Volatility - Bolingar Bands
+##### 5.2.5.3 Charting for Reviewing Stock Volatility - Bolingar Bands
 
 WHy Bollinger Bands - Bollinger Bands are used to visualize volatility by plotting a range around a moving average typically two standard deviations up and down. Because they use a moving average, the geom_bbands function works almost identically to geom_ma. The same seven moving averages are compatible. The main difference is the addition of the standard deviation, sd, argument which is 2 by default, and the high, low and close aesthetics which are required to calculate the bands. 
 
-##### 5.2.6.3 Applying BBands using a SMA
+##### 5.2.5.4.1 Applying BBands using a SMA
 
 ```{r}
 AAPL %>%
@@ -410,6 +431,15 @@ AAPL %>%
 The main fucntion here is to use **facet_wrap** to visualize multiple stocks at the same time. By adding a group aesthetic in the main ggplot() function and combining with a facet_wrap() function at the end of the ggplot workflow, all five “FAANG” stocks can be viewed simultaneously. 
 
 ### 6.1 Multiple securities -Closing prices
+
+#### 6.1.1 Multiple securities - closing prices - in a Timeseries Line Chart
+
+```{r}
+tq_get(c("GOOG","AMZN","FB","AAPL","NFLX"),get="stock.prices") %>%
+  ggplot(aes(date, close, color=symbol)) +
+  geom_line()
+```
+#### 6.1.2 Multiple securities - closing prices - in Facet
 
 ```{r}
 start <- end - weeks(6)
@@ -494,6 +524,9 @@ FAANG %>%
 
 ### 6.4  Multiple securities -Annural Returns 
 
+
+#### 6.4.2 Multiple Stocks in a Facet Chart
+
 This is to try out the  **tq_transmute**  function.
 
 ```{r}
@@ -568,7 +601,7 @@ portfolio_growth_monthly <- stock_returns_monthly %>%
 
 portfolio_growth_monthly %>%
     ggplot(aes(x = date, y = investment.growth)) +
-    geom_line(size = 2, color = palette_light()[[1]]) +
+    geom_line(size = 1.5, color = palette_light()[[1]]) +
     labs(title = "Portfolio Growth",
          subtitle = "20% AAPL, 20% GOOG,20% NFLX, 20% FB, 20% AMZN",
          caption = "Visualize performance!",
@@ -593,7 +626,7 @@ To visualize multiple portfolios, we just  need to configure the WEIGHTs table, 
 ```{r}
 weights <- c(
     0.2, 0.25, 0.25,0.2,0.1,
-    0.15, 0.50, 0.25,0.5,0.5,
+    0.10, 0.40, 0.3,0.1,0.1,
     0.15, 0.25, 0.40,0.1,0.1
 )
 
@@ -619,10 +652,10 @@ portfolio_growth_monthly_multi <- stock_returns_monthly_multi %>%
 
 portfolio_growth_monthly_multi %>%
     ggplot(aes(x = date, y = investment.growth, color = factor(portfolio))) +
-    geom_line(size = 2) +
+    geom_line(size = 1) +
     labs(title = "Portfolio Growth",
          subtitle = "Comparing Multiple Portfolios- Portfolio 2 has the highest returns",
-         caption = "Best Performing Porfolio -2 : 15% AAPL, 50% GOOG, 25% NFLX, 5% FB,5% AMZN",
+         caption = "Best Performing Porfolio -3 : 15% AAPL, 25% GOOG, 40% NFLX,10% FB,10% AMZN",
          x = "", y = "Portfolio Value",
          color = "Portfolio") +
     geom_smooth(method = "loess") +
@@ -633,7 +666,7 @@ portfolio_growth_monthly_multi %>%
 
 ### 6.6 Miscelleneous Plotting experiementations 
 
-#### 6.6.1 GGPLOT - Exploration of Log Scale vs Continous Scale on Y for stock prices
+### 6.6.1 GGPLOT - Exploration of Log Scale vs Continous Scale on Y for stock prices
 
 ```{r}
 AMZN %>%
@@ -655,7 +688,7 @@ AMZN %>%
          y = "Closing Price", x = "") + 
     theme_tq()
 ```
-#### 6.6.2 GGPLOT - Plotting Regression trendlines with geom_smooth
+### 6.6.2 GGPLOT - Plotting Regression trendlines with geom_smooth
 
 ```{r}
 
@@ -672,15 +705,17 @@ AMZN %>%
 ```
 #### 6.6.3 Tidyquant Themes 
 
+#### 6.6.3.1 Testing with Dark Theme and thin lines
+
 ```{r}
 n_mavg <- 50 # Number of periods (days) for moving average
 FAANG %>%
     filter(date >= start - days(2 * n_mavg)) %>%
     ggplot(aes(x = date, y = close, color = symbol)) +
-    geom_line(size = 1) +
-    geom_ma(n = 15, color = "darkblue", size = 1) + 
-    geom_ma(n = n_mavg, color = "red", size = 1) +
-    labs(title = "Dark Theme",
+    geom_line(size = 0.2) +
+    geom_ma(n = 15, color = "darkblue", size = 0.2) + 
+    geom_ma(n = n_mavg, color = "red", size = 0.2) +
+    labs(title = "Dark Theme and thin lines- size 0.2",
          x = "", y = "Closing Price") +
     coord_x_date(xlim = c(start, end)) +
     facet_wrap(~ symbol, scales = "free_y") +
@@ -693,10 +728,10 @@ n_mavg <- 50 # Number of periods (days) for moving average
 FAANG %>%
     filter(date >= start - days(2 * n_mavg)) %>%
     ggplot(aes(x = date, y = close, color = symbol)) +
-    geom_line(size = 1) +
-    geom_ma(n = 15, color = "darkblue", size = 1) + 
-    geom_ma(n = n_mavg, color = "red", size = 1) +
-    labs(title = "Light Theme",
+    geom_line(size = 1.5) +
+    geom_ma(n = 15, color = "darkblue", size = 1.5) + 
+    geom_ma(n = n_mavg, color = "red", size = 1.5) +
+    labs(title = "Light Theme with thicker lines of size -1.5",
          x = "", y = "Closing Price") +
     coord_x_date(xlim = c(start, end)) +
     facet_wrap(~ symbol, scales = "free_y") +
@@ -714,7 +749,7 @@ FAANG %>%
     geom_line(size = 1) +
     geom_ma(n = 15, color = "darkblue", size = 1) + 
     geom_ma(n = n_mavg, color = "red", size = 1) +
-    labs(title = "Light Theme",
+    labs(title = "Green Theme with normal size line",
          x = "", y = "Closing Price") +
     coord_x_date(xlim = c(start, end)) +
     facet_wrap(~ symbol, scales = "free_y") +
@@ -722,12 +757,21 @@ FAANG %>%
     scale_color_tq(theme = "dark") +
     scale_y_continuous(labels = scales::dollar)
 ```
-***Key Learning*** : The white theme still presents the information with better clarity, and should be used for overall approach.
+***Key Learning*** : THe other colour schemes - will invariably collide with one of the coloured lines - eg. in the last example above. The ***white theme*** with normal size line of 1 is good for single charts, and for faceted charts, white background with a fine line width of about 0.8 :  still presents the information with better clarity, and should be used for overall approach.
 
 
 ### 7.0 Reflection- Conclusion/Key Learnings/Benefits of Interactivity in the Shiny App
 
-A interactive implementation of the above would be able to bring much better user experience
+A interactive implementation of the above would be able to bring much better user experience. Based on experimenting with various formats, graph and chart options i think :
+
+  a)Candle-stick is clearer for the user to read then barchart
+
+  b)Facets provide possiblity to read the details per stock ( when comparing a portofolio of stocks ) and should be        provided as an additional option in addition to the typical 'one chart '.
+  
+  c)The default theme 'white' is much clearer than the fancier color schemes such as grey/green.
+  
+  d)THe log-scale for y-axis eg. for stock prices although allowing more to be captured, can be misleading and is not    recommended to be used for stock prices- especially for intepreting trends.
+
 
 ### 7.1 Interactive User Experience and Self Configuration of views 
 
@@ -759,3 +803,7 @@ With an interactive visualisation, the user is able to see more detail about the
 
 4)Workflow for : TidyQuant Portfolio Analysis 
 https://cloud.r-project.org/web/packages/tidyquant/vignettes/TQ05-performance-analysis-with-tidyquant.html
+
+5)Various Examples 
+https://edav.info/tidyquant.html
+
