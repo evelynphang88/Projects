@@ -110,7 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Visualisation for Stock Performance Analysis"]},{"type":"character","attributes":{},"value":["ISS 608- Visual Analytics Assignment : Stock Analysis - Visualisations- A short exploration of TidyQuant with ggplot2\n"]},{"type":"character","attributes":{},"value":["tidyquant1.jpg"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["EvelynPhang"]}]}]},{"type":"character","attributes":{},"value":["04-05-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Visualisation for Stock Performance Analysis"]},{"type":"character","attributes":{},"value":["ISS 608- Visual Analytics Assignment : Stock Analysis - Visualisations- A short exploration of TidyQuant with ggplot2\n"]},{"type":"character","attributes":{},"value":["tidyquant1.png"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["EvelynPhang"]}]}]},{"type":"character","attributes":{},"value":["04-05-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1690,7 +1690,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre><code><span class='va'>AAPL</span> <span class='op'>%&gt;%</span>
     <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>date</span>, y <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'>geom_barchart</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>open <span class='op'>=</span> <span class='va'>open</span>, high <span class='op'>=</span> <span class='va'>high</span>, low <span class='op'>=</span> <span class='va'>low</span>, close <span class='op'>=</span> <span class='va'>close</span><span class='op'>)</span>,
-                  colour_up <span class='op'>=</span> <span class='st'>"darkgreen"</span>, colour_down <span class='op'>=</span> <span class='st'>"darkred"</span>, size <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span>
+                  colour_up <span class='op'>=</span> <span class='st'>"darkgreen"</span>, colour_down <span class='op'>=</span> <span class='st'>"darkred"</span>, size <span class='op'>=</span> <span class='fl'>0.8</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"AAPL Bar Chart of Stock Prices"</span>, 
          subtitle <span class='op'>=</span> <span class='st'>"Zoomed in using coord_x_date- colour_up = darkgreen, colour_down = darkred"</span>,
          y <span class='op'>=</span> <span class='st'>"Closing Price"</span>, x <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -1701,7 +1701,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <p><img src="assignment_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
-<p><strong><em>Key Learning</em></strong> :Candle Charts are far easier to interpret than Pricebarcharts and much easier to read.</p>
+<p><strong><em>Key Learning</em></strong> :Candle Charts far easier to interpret than Pricebarcharts and much easier to read.</p>
 <h3 id="stock-pricetradingvolumereturns">5.2 Stock Price/TradingVolume/Returns</h3>
 <p>Exploring the varies ways to visualize Price/TradingVolume/Returns/Moving Averages.</p>
 <h4 id="price-line-chart--for-the-full-period">5.2.1 Price Line Chart- for the full period</h4>

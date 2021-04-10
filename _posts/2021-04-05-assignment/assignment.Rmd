@@ -2,7 +2,7 @@
 title: "Visualisation for Stock Performance Analysis"
 description: |
     ISS 608- Visual Analytics Assignment : Stock Analysis - Visualisations- A short exploration of TidyQuant with ggplot2
-preview: tidyquant1.jpg
+preview: tidyquant1.png
 author:
   - name: EvelynPhang
 date: 04-05-2021
@@ -225,9 +225,7 @@ AAPL %>%
 
 #### 5.1.5 Price Bar Chart- alternative to candlestick
 
-Price Bar Chart - Each bar typically shows open, high, low, and closing (OHLC) prices. 
-Bar charts are very similar to candlestick charts. The two chart types show the same information but in different ways.
-A bar chart is composed of a vertical line with small horizontal lines on the left and right that show the open and close. Candlesticks also have a vertical line showing the high and low of the period (called a shadow or wick), but the difference between the open and close is represented by a thicker portion called a real body. The body is shaded in or colored red if the close is below the open. The body is white or green if the close is above the open. While the information is the same, the visual look of the two chart types is different.
+Price Bar Chart - Each bar typically shows open, high, low, and closing (OHLC) prices. Bar charts are very similar to candlestick charts. The two chart types show the same information but in different ways. A bar chart is composed of a vertical line with small horizontal lines on the left and right that show the open and close. Candlesticks also have a vertical line showing the high and low of the period (called a shadow or wick), but the difference between the open and close is represented by a thicker portion called a real body. The body is shaded in or colored red if the close is below the open. The body is white or green if the close is above the open. While the information is the same, the visual look of the two chart types is different.
 
 ```{r}
 AAPL %>%
@@ -249,7 +247,7 @@ AAPL %>%
 AAPL %>%
     ggplot(aes(x = date, y = close)) +
     geom_barchart(aes(open = open, high = high, low = low, close = close),
-                  colour_up = "darkgreen", colour_down = "darkred", size = 2) +
+                  colour_up = "darkgreen", colour_down = "darkred", size = 0.8) +
     labs(title = "AAPL Bar Chart of Stock Prices", 
          subtitle = "Zoomed in using coord_x_date- colour_up = darkgreen, colour_down = darkred",
          y = "Closing Price", x = "") + 
@@ -257,7 +255,7 @@ AAPL %>%
                  ylim = c(110, 130)) + 
      theme_tq()
 ```
-***Key Learning*** :Candle Charts are far easier to interpret than Pricebarcharts and much easier to read.
+***Key Learning*** :Candle Charts far easier to interpret than Pricebarcharts and much easier to read.
  
 
 
